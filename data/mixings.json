@@ -1,0 +1,80 @@
+{
+  "paints": {
+    "white": "basics titanium white",
+    "red": "basics naphthol crimson",
+    "swag" "basics cadmium yellow medium hue",
+    "blue": "basics ultramarine blue"
+  },
+
+  "mixings": [
+    {
+      "colors": [
+        {"color": "white", "parts": "1"},
+      ],
+      "result": "#ffeded"
+    },
+    {
+      "colors": [
+        {"color": "red", "parts": "1"}
+      ],
+      "result": "#ff1d1d"
+    },
+    {
+      "colors": [
+        {"color": "white", "parts": "1"},
+        {"color": "red", "parts": "1"}
+      ],
+      "result": "#ff7f7f"
+    },
+    {
+      "colors": [
+        {"color": "white", "parts": "1"},
+        {"color": "red", "parts": "2"}
+      ],
+      "result": "#ff5757"
+    },
+    {
+      "colors": [
+        {"color": "white", "parts": "1"},
+        {"color": "red", "parts": "4"}
+      ],
+      "result": "#ff4747"
+    },
+    {
+      "colors": [
+        {"color": "white", "parts": "1"},
+        {"color": "red", "parts": "8"}
+      ],
+      "result": "#ff4040"
+    },
+    {
+      "colors": [
+        {"color": "white", "parts": "1"},
+        {"color": "red", "parts": "16"}
+      ],
+      "result": "#ff3131"
+    }
+
+    {
+      "colors": [
+        {"color": "white", "parts": "2"},
+        {"color": "red", "parts": "1"}
+      ],
+      "result": "#ff8e8e"
+    },
+    {
+      "colors": [
+        {"color": "white", "parts": "4"},
+        {"color": "red", "parts": "1"}
+      ],
+      "result": "#ffa8a8"
+    },
+    {
+      "colors": [
+        {"color": "white", "parts": "8"},
+        {"color": "red", "parts": "1"}
+      ],
+      "result": "#ffcbcb"
+    }
+  ]
+}

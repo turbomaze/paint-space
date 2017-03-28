@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Color finder</title>
+
+    <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    </style>
+
+    <script>
+    var ColorFinder = (function() {
+      // these must start with a hash
+      var color1;
+      var color2 = '';
+
+      function initColorfinder() {
+        var hash = window.location.hash.substring(1);
+        color1 = hash.split(',')[0];
+        color2 = hash.split(',')[1];
+
+        document.body.addEventListener('click', bisect);
+
+        render();
+      }
+
+      function render() {
+        var hash = color1 + ',' + color2;
+        document.body.style.background = 'linear-gradient(' +
+          'to right,' + hash +
+        ')';
+        window.location.hash = '#' + hash;
+      }
+
+      function bisect(e) {
+        var fraction = e.clientX / window.innerWidth;
+        var midpoint = midpointColor(color1, color2);
+        if (fraction < 0.5) {
+          color2 = midpoint;
+        } else {
+          color1 = midpoint;
+        }
+        render();
+      }
+
+      function midpointColor(a, b) {
+        var color = "#";
+        for (var i = 0; i < 3; i++) {
+          var channelA = getChannel(a, i);
+          var channelB = getChannel(b, i);
+          var intA = colorStrToInt(channelA);
+          var intB = colorStrToInt(channelB);
+          var average = Math.floor(Math.sqrt(
+            (intA * intA + intB * intB) / 2
+          )).toString(16);
+          while (average.length < 2) average = '0' + average;
+          color += average;
+        }
+        return color;
+      }
+
+      function getChannel(str, index) {
+        if (str.length < 7 || index > 2) {
+          console.log(
+            'ERROR: getChannel(' + str + ',' + index + ')'
+          );
+        }
+
+        var start = 1 + index * 2;
+        return str.substring(start, start + 2);
+      }
+
+      function colorStrToInt(str) {
+        return parseInt(str, 16);
+      }
+      
+      return {
+        init: initColorfinder
+      };
+    })();
+
+    window.addEventListener('load', ColorFinder.init);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
